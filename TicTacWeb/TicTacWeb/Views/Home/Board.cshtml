@@ -1,0 +1,30 @@
+﻿@*
+
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Board Page";
+}
+<div class="board">
+    <table>
+        <tr>
+            <td id ="TopLeft">1
+                <button id="TopLeftSetX" asp-controller="Board" asp-action="TopLeftSetXCmd">X</button>
+                <button id="TopLeftSetY" onclick="TopLeftSetXCmd">Y</button>
+            </td>
+            <td id ="TopLeft">2</td>
+            <td id ="TopLeft">3</td>
+        </tr>
+        <tr>
+            <td id ="TopLeft">4</td>
+            <td id ="TopLeft">5</td>
+            <td id ="TopLeft">6</td>
+        </tr>
+        <tr>
+            <td id ="TopLeft">7</td>
+            <td id ="TopLeft">8</td>
+            <td id ="TopLeft">9</td>
+        </tr>
+
+    </table>
+    </div>

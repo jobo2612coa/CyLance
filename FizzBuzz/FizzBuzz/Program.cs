@@ -32,12 +32,17 @@ namespace FizzBuzz
             Console.WriteLine(FizzBuzz2.Run(18, 37));       // test of both upper and lower
 
 
-            
-            for (int i = 1; i <= 20; i++)
+            FizzBuzzPair[] newPairs3 = new FizzBuzzPair[]
             {
-                Console.WriteLine(FizzBuzz.Step(i));   //  test of Step entry point
+                new FizzBuzzPair(1, "Concat"),
+                new FizzBuzzPair(2, "This")
+            };
+            FizzBuzzRun FizzBuzz3 = new FizzBuzzRun(newPairs3);  //change the pairs
+            for (int i = 1; i <= 5; i++)
+            {
+                Console.WriteLine(FizzBuzz3.Step(i));   //  test of Step entry point
             }
-
+            Console.WriteLine();
 
             // edge cases
             string value = "";

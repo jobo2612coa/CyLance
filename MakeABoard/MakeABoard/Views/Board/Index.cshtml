@@ -1,0 +1,63 @@
+﻿@model MakeABoard.Models.BoardModel
+    <!--
+
+    <link href="~/Content/info.css" rel="stylesheet" />
+    -->
+    <head>
+        <style>
+            table {
+                width: 100%;
+            }
+
+            td {
+                width: 33.3%;
+            }
+
+                td:after {
+                    content: "";
+                    display: block;
+                    margin-top: 100%;
+                }
+        </style>
+    </head>
+
+    <h4>BoardModel</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Board">
+                <h1>Board/Index</h1>
+                <table id="board">
+                    <tr>
+                        <td>@Model.Test</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

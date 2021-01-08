@@ -1,0 +1,38 @@
+﻿@model MakeABoard.Models.MatchModel
+@ViewData["Player"] = "NotSet";
+<div>
+    <h4>Match_Main</h4>
+    <p>
+    @DateTime.Now.ToString()
+    <hr />
+    <dl class="row">
+    </dl>
+</div>
+<div>
+    <p>
+    This is the Match Board Space
+    <p>
+    @await Html.PartialAsync("/Views/Board/Board.cshtml", new BoardModel())
+    <span>
+        space for text
+    </span>
+</div>
+<div>
+    <p>
+    This is Player 1 Space
+        @{ViewData["Player"] = "1"; }
+        <p>
+            @await Html.PartialAsync("/views/player/player.cshtml", ViewData)   
+       
+</div>
+<div>
+    <p>
+        This is Player 2 Space
+        @{ViewData["Player"] = "2"; }
+    <p>
+       @await Html.PartialAsync("/views/player/player.cshtml",ViewData)  
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>
