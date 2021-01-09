@@ -10,9 +10,15 @@ namespace XUnitTestProject1
     {
         [Fact]
         public void Print_Result() {
+            string expected = "product.name == Test\nproduct.interest_rate == 5.0\nproduct.disqualified == False\n\n";
             RulesEngine rulesEngine = new RulesEngine();
-            rulesEngine.runRules(new Person(720, "Florida"), new Product("Test", 5.0m), "null rules");
-            Assert.True(true);
+            string result = rulesEngine.runRules(new Person(720, "Florida"), new Product("Test", 5.0m), "null rules");
+            Assert.Equal(result, expected);
+        }
+        public void Print_Output()
+        {
+            RulesEngine rulesEngine = new RulesEngine();
+
         }
     }
 }
