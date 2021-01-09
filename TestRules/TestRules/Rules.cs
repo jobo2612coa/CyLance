@@ -4,21 +4,24 @@ using System.Text;
 
 namespace TestRules
 {
-    class Rules
+    public class Rules
     {
 
-        List<Rule> rules = new List<Rule>();        
+        IList<Rule> rules = new List<Rule>();
         public List<Rule> loadRules()
         {
             List<Rule> result = new List<Rule>();
             result.Add(new Rule("interest_rate", "starts", "5.0"));
             result.Add(new Rule("state", "Florida", "disqualify"));
+           
+            IDictionary<string, Rule> dict1 = new Dictionary<string, Rule>();
+            dict1.Add("interest_rate", new Rule("interest_rate", "starts", "5.0"));
+            dict1.Add("state", new Rule("state", "Florida", "disqualify"));
             return result;
         }
-
     }
 
-    class Rule
+    public class Rule
     {
         public string parameter { get; set; }
         public string condition { get; set; }

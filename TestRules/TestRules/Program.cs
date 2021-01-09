@@ -8,6 +8,23 @@ namespace TestRules
         {
             Person person = new Person(720, "Florida");
             Product product = new Product("7 - 1 ARM", 5.0);
+            // instansiate rules engine
+            RulesEngine rules_engine = new RulesEngine();
+
+            // load rules
+            // Rules = loadRules();
+
+            // run rules
+            rules_engine.runRules(person, product, "rules");
+
+
+            // running rules causes printed output
+            // listing product fields
+            // product.name == whatever
+            // product.interest_rate == 5.2
+            // product.disqualified == true
+
+
         }
     }
 }
