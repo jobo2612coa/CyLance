@@ -12,7 +12,9 @@ namespace XUnitTestProject1
         public void Print_Result() {
             string expected = "product.name == Test\nproduct.interest_rate == 5.0\nproduct.disqualified == False\n\n";
             RulesEngine rulesEngine = new RulesEngine();
-            string result = rulesEngine.runRules(new Person(720, "Florida"), new Product("Test", 5.0m), "null rules");
+            List<Rule> rules = new List<Rule>();
+
+            string result = rulesEngine.runRules(new Person(720, "Florida"), new Product("Test", 5.0m), rules);
             Assert.Equal(result, expected);
         }
         public void Print_Output()

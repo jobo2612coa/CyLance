@@ -6,8 +6,13 @@ namespace TestRules
 {
     public class RulesEngine
     {
-        public string runRules(Person person, Product product, string rules)
+        public string runRules(Person person, Product product, IList<Rule> rules)
         {
+            foreach (Rule rule in rules)
+            {
+
+            }
+
 
             string output = String.Format("product.name == {0}\n", product.name);
             output += String.Format("product.interest_rate == {0}\n", product.interest_rate);

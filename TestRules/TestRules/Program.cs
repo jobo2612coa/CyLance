@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TestRules
 {
@@ -12,10 +13,11 @@ namespace TestRules
             RulesEngine rules_engine = new RulesEngine();
 
             // load rules
-            // Rules = loadRules();
+            Rules rules = new Rules();
+            List<Rule> rulesResult = rules.loadRules();
 
             // run rules
-            rules_engine.runRules(person, product, "rules");
+            rules_engine.runRules(person, product, rulesResult);
 
 
             // running rules causes printed output

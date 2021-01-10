@@ -12,8 +12,17 @@ namespace XUnitTestProject1
         [Fact]
         public void Create()
         {
-            Rules rules = new Rules();
-            Assert.True(false);
+            IList<Rule> rulesResult = new List<Rule>();
+            try
+            {
+                Rules rules = new Rules();
+                rulesResult = rules.loadRules();
+                Assert.True(true);
+            } catch 
+            {
+                Assert.True(false);
+            }
+
             //Rules newRules = rules.loadRules;
             
         }
