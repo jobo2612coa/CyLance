@@ -20,6 +20,12 @@ namespace TestRules
             name = _name;
             interest_rate = Convert.ToDecimal(_interest_rate);
         }
-
+        public decimal Interest_Rate(string action, decimal action_value)
+        {
+            interest_rate = (action == "set" ? action_value :
+                (action == "add" ? interest_rate + action_value :
+                    (action == "sub" ? interest_rate - action_value : 0)));
+            return interest_rate;
+        }
     }
 }

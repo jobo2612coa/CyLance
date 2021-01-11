@@ -18,14 +18,13 @@ namespace XUnitTestProject1
                 Rules rules = new Rules();
                 rulesResult = rules.loadRules();
                 Assert.True(true);
-            } catch 
+            } catch
             {
                 Assert.True(false);
             }
 
             //Rules newRules = rules.loadRules;
-            
+
         }
     }
-    
 }
