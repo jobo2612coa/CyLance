@@ -9,7 +9,7 @@ namespace XUnitTestProject1
     public class RuleIO_Tests
     {
         [Fact]
-        public static void Write_JSON()
+        public static void Write_JSON()  // test only to create JSON data file from stock data
         {
             RuleIO ruleio = new RuleIO();
             ruleio.WriteInputJSON();
@@ -19,7 +19,7 @@ namespace XUnitTestProject1
         public static void Read_JSON()
         {
             RuleIO ruleio = new RuleIO();
-            ruleio.ReadJSON();
+            List<Rule> rules = ruleio.ReadJSON();
             Assert.True(true);
         }
     }

@@ -6,9 +6,6 @@ namespace TestRules
 {
     public class Rules
     {
-        public int test = 15;
-        public string othertest = "fifteen";
-
         public List<Rule> rules = new List<Rule>();
         public List<Rule> loadRules()
         {
