@@ -8,17 +8,74 @@ using System.IO;
 
 namespace TestRules
 {
+
     public class RuleIO
     {
+        const string fileName = "TestRules.json";
         public void WriteJSON (string content)
         {
-            string fileName = "TestRules.json";
 
             Rules rules = new Rules();
             rules.loadRules();
+            List<Rule> listRule = rules.rules;
 
-            string jsonString = JsonSerializer.Serialize(rules);
-            System.IO.File.WriteAllText(fileName, jsonString);
+
+            
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+            };
+
+            string jsonStringRule = null;
+            foreach ( Rule rule in listRule)
+            {
+                 jsonStringRule += JsonSerializer.Serialize(rule);
+            }
+                System.IO.File.WriteAllText(fileName, jsonStringRule);
+          
+
+
+
+
+        }
+        public List<Rule> ReadJSON()
+        {
+            Rules result = new Rules();
+            string JSONstring = System.IO.File.ReadAllText(fileName);
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+            };
+            result.rules = JsonSerializer.Deserialize<List<Rule>>(JSONstring, options);
+            return result.rules;
+
+        }
+
+        public void WriteInputJSON() // one time use
+        {
+
+            Rules rules = new Rules();
+            rules.rules.Clear();
+            // format of the rules is:
+            //    if   <first item field to test>
+            //    is   <second item conditional>
+            //         <third item compare value>
+            //    then <fourth item field to change>
+            //         <fifth item action to take>
+            //         <sixth item value to use>
+            rules.rules.Add(new Rule("na", "always", "na", "interest_rate", "set", "5.0"));
+            rules.rules.Add(new Rule("state", "eq", "Florida", "disqualified", "set", "true"));
+            rules.rules.Add(new Rule("credit_score", "ge", "720", "interest_rate", "sub", ".3"));
+            rules.rules.Add(new Rule("credit_score", "lt", "720", "interest_rate", "add", ".5"));
+            rules.rules.Add(new Rule("name", "eq", "7-1 ARM", "interest_rate", "add", ".5"));
+            
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+            };
+
+            string jsonStringRule = JsonSerializer.Serialize(rules.rules, options);
+            System.IO.File.WriteAllText(fileName, jsonStringRule);
         }
     }
 }

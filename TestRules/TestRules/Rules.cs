@@ -6,18 +6,15 @@ namespace TestRules
 {
     public class Rules
     {
+        public int test = 15;
+        public string othertest = "fifteen";
 
         public List<Rule> rules = new List<Rule>();
         public List<Rule> loadRules()
         {
-            rules.Clear();
-            rules.Add(new Rule("na", "always", "na", "interest_rate", "set", "5.0"));
-            rules.Add(new Rule("state", "eq", "Florida", "disqualified", "set", "true"));
-            rules.Add(new Rule("credit_score", "ge", "720", "interest_rate", "sub", ".3"));
-            rules.Add(new Rule("credit_score", "lt", "720", "interest_rate", "add", ".5"));
-            rules.Add(new Rule("name", "eq", "7-1 ARM", "interest_rate", "add", ".5"));
+            RuleIO ruleIO = new RuleIO();
 
-
+            rules = ruleIO.ReadJSON();
             return rules;
         }
         public List<Rule> loadRule(Rule rule)

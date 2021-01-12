@@ -13,6 +13,7 @@ namespace TestRules
         public string result_field { get; set; }
         public string action { get; set; }
         public string action_value { get; set; }
+        public Rule() { }
         public Rule(string _parameter, string _comparison, string _parameter_value, string _result_field, string _action, string _action_value)
         {
             parameter_field = _parameter;

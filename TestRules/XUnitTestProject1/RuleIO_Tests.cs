@@ -12,7 +12,14 @@ namespace XUnitTestProject1
         public static void Write_JSON()
         {
             RuleIO ruleio = new RuleIO();
-            ruleio.WriteJSON("test");
+            ruleio.WriteInputJSON();
+            Assert.True(true);
+        }
+        [Fact]
+        public static void Read_JSON()
+        {
+            RuleIO ruleio = new RuleIO();
+            ruleio.ReadJSON();
             Assert.True(true);
         }
     }
