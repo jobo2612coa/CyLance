@@ -67,7 +67,7 @@ namespace TestRules
             rules.rules.Add(new Rule("state", "eq", "Florida", "disqualified", "set", "true"));
             rules.rules.Add(new Rule("credit_score", "ge", "720", "interest_rate", "sub", ".3"));
             rules.rules.Add(new Rule("credit_score", "lt", "720", "interest_rate", "add", ".5"));
-            rules.rules.Add(new Rule("name", "eq", "7-1 ARM", "interest_rate", "add", ".5"));
+            rules.rules.Add(new Rule("name", "eq", "7 - 1 ARM", "interest_rate", "add", ".5"));
             
             var options = new JsonSerializerOptions
             {
