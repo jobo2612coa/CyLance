@@ -1,0 +1,32 @@
+[
+  {
+    "query": "",
+    "action_field": "interest_rate",
+    "action_function": "set",
+    "action_value": "5.0"
+  },
+  {
+    "query": "state = \u0027Florida\u0027",
+    "action_field": "disqualified",
+    "action_function": "set",
+    "action_value": "true"
+  },
+  {
+    "query": "credit_score \u003E= 720",
+    "action_field": "interest_rate",
+    "action_function": "sub",
+    "action_value": ".3"
+  },
+  {
+    "query": "credit_score \u003C 720",
+    "action_field": "interest_rate",
+    "action_function": "add",
+    "action_value": ".5"
+  },
+  {
+    "query": "name = \u00277 - 1 ARM\u0027",
+    "action_field": "interest_rate",
+    "action_function": "add",
+    "action_value": ".5"
+  }
+]
