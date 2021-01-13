@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
+using TestRules;
+using Xunit;
 
-namespace TestRules
+namespace XUnitTestProject1
 {
-    class Program
+    public class Main_Tests
     {
-        static void Main(string[] args)
+        [Fact]
+        public static void Main_ish()
         {
+            string expected = "product.name == 7 - 1 ARM\nproduct.interest_rate == 5.2\nproduct.disqualified == True\n\n";
             Person person = new Person(720, "Florida");
             Product product = new Product("7 - 1 ARM", 5.0, false);
             // instansiate rules engine
@@ -17,16 +22,9 @@ namespace TestRules
             List<Rule> rulesResult = rules.loadRules();
 
             // run rules
-            string output = rules_engine.runRules(person, product, rulesResult);
+            string result = rules_engine.runRules(person, product, rulesResult);
 
-            Console.WriteLine(output);
-            // running rules causes printed output
-            // listing product fields
-            // product.name == whatever
-            // product.interest_rate == 5.2
-            // product.disqualified == true
-
-
+            Assert.Equal(expected, result);
         }
     }
 }

@@ -12,12 +12,11 @@ namespace XUnitTestProject1
         [Fact]
         public void Create()
         {
-            Rule rule = new Rule("none", "none", "none", "interest_rate", "set", "value");
-            Assert.Equal("none", rule.parameter_field);
-            Assert.Equal("none", rule.comparison);
-            Assert.Equal("none", rule.parameter_value);
-            Assert.Equal("interest_rate", rule.result_field);
-            Assert.Equal("set", rule.action);
+            Rule rule = new Rule("", "interest_rate", "set", "value");
+            Assert.Equal("", rule.query);
+
+            Assert.Equal("interest_rate", rule.action_field);
+            Assert.Equal("set", rule.action_function);
             Assert.Equal("value", rule.action_value);
         }
     }

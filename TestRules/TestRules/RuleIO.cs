@@ -63,11 +63,11 @@ namespace TestRules
             //    then <fourth item field to change>
             //         <fifth item action to take>
             //         <sixth item value to use>
-            rules.rules.Add(new Rule("na", "always", "na", "interest_rate", "set", "5.0"));
-            rules.rules.Add(new Rule("state", "eq", "Florida", "disqualified", "set", "true"));
-            rules.rules.Add(new Rule("credit_score", "ge", "720", "interest_rate", "sub", ".3"));
-            rules.rules.Add(new Rule("credit_score", "lt", "720", "interest_rate", "add", ".5"));
-            rules.rules.Add(new Rule("name", "eq", "7 - 1 ARM", "interest_rate", "add", ".5"));
+            rules.rules.Add(new Rule("", "interest_rate", "set", "5.0"));
+            rules.rules.Add(new Rule("state = 'Florida'", "disqualified", "set", "true"));
+            rules.rules.Add(new Rule("credit_score >= 720", "interest_rate", "sub", ".3"));
+            rules.rules.Add(new Rule("credit_score < 720", "interest_rate", "add", ".5"));
+            rules.rules.Add(new Rule("name = '7 - 1 ARM'", "interest_rate", "add", ".5"));
             
             var options = new JsonSerializerOptions
             {

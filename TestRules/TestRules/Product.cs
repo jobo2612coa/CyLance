@@ -10,15 +10,17 @@ namespace TestRules
         public decimal interest_rate { get; set; }
         public Boolean disqualified { get; set; }
 
-        public Product (string _name, decimal _interest_rate)
+        public Product (string _name, decimal _interest_rate, Boolean _disqualified)
         {
             name = _name;
             interest_rate = _interest_rate;
+            disqualified = _disqualified;
         }
-        public Product(string _name, double _interest_rate)
+        public Product(string _name, double _interest_rate, Boolean _disqualified)
         {
             name = _name;
             interest_rate = Convert.ToDecimal(_interest_rate);
+            disqualified = _disqualified;
         }
         public decimal Interest_Rate(string action, decimal action_value)
         {
